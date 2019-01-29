@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<style>
+
+#boite{
+	position: fixed;
+	padding: 10px;
+}
+</style>
+</head>
+<body id="oui">
+
+
+<button onclick="strob()">Start</button>
+<div id="boite" onMouseOver="bouge()">
+	<button onclick="stop()">Stop</button>
+</div>
+
+
+
+</body>
+</html>
+
+<script>
+var couleur = ["red","blue","green","pink","yellow","orange"];
+var i;
+var stop;
+var timer;
+
+var btn = document.getElementById("btnStop");
+var boite = document.getElementById("boite");
+
+
+strob();
+function Random(max){
+	return Math.floor(Math.random() * Math.floor(max));
+}
+
+function bouge(){
+	k = Random(100)
+	boite.style.top = k + "%";
+	k = Random(100)
+	boite.style.right = k + "%";
+	
+	
+}
+function strob(){
+	i = Random(6);
+	document.getElementById("oui").style.backgroundColor=couleur[i];
+	stop();
+	timer = setTimeout(strob,10);
+	
+}
+
+function stop(){
+	clearTimeout(timer);
+}
+
+
+</script>
